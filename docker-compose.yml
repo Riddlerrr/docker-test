@@ -5,15 +5,15 @@ x-app: &app
     context: .
     dockerfile: ./.dockerdev/Dockerfile
     args:
-      RUBY_VERSION: '2.6.5'
-      PG_MAJOR: '11'
+      RUBY_VERSION: '2.6.6'
+      PG_MAJOR: '12'
       NODE_MAJOR: '12'
       YARN_VERSION: '1.22.4'
       BUNDLER_VERSION: '2.1.4'
   environment: &env
     NODE_ENV: development
     RAILS_ENV: ${RAILS_ENV:-development}
-  image: dev:1.0.2
+  image: dev:1.0.4
   tmpfs:
     - /tmp
 
@@ -64,12 +64,13 @@ services:
     command: bundle exec sidekiq -C config/sidekiq.yml
 
   postgres:
-    image: postgres:11.1
+    image: postgres:12.2
     volumes:
       - .dockerdev/.psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
       - ./log:/root/log:cached
     environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
       PSQL_HISTFILE: /root/log/.psql_history
     ports:
       - 5432
@@ -78,7 +79,7 @@ services:
       interval: 5s
 
   redis:
-    image: redis:3.2-alpine
+    image: redis:5.0-buster
     volumes:
       - redis:/data
     ports:
