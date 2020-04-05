@@ -1,24 +1,26 @@
-# README
+# Fresh Rails 6.0 app with configured Docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Docker uses Ruby 2.6.6, PostgeSQL 12.2, Redis 5.0, NodeJS 12, yarn 1.22.4 and bundler 2.1.4
+Also [https://github.com/bibendi/dip](dip) configuration was added to improve user experience.
 
-Things you may want to cover:
+## How to install
 
-* Ruby version
+You must have docker installed and runned on your system. For mac is Docker Desktop app.
 
-* System dependencies
+Install dip to your system:
 
-* Configuration
+```
+brew tap bibendi/dip
+brew install dip
+```
 
-* Database creation
+Run `dip provision`. It will download all necessary images, build containers, install gems and npm modules and prepare a database.
+That's it 🎉, you ready to run rails server: `dip rails s` to see your app runned on [http://localhost:3000](http://localhost:3000).
 
-* Database initialization
+To run rails/rake tasks you have 2 options:
 
-* How to run the test suite
+1. Run `dip sh`. It opens container terminal where you can run `rake db:migrate` or any other commands.
+2. Run `dip rake db:migrate`. It executes the command and exit like if you run `rake db:migrate` without containers.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
