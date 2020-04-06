@@ -1,7 +1,7 @@
 # Fresh Rails 6.0 app with configured Docker
 
 Docker uses Ruby 2.6.6, PostgeSQL 12.2, Redis 5.0, NodeJS 12, yarn 1.22.4 and bundler 2.1.4
-Also [https://github.com/bibendi/dip](dip) configuration was added to improve user experience.
+Also [dip](https://github.com/bibendi/dip) configuration was added to improve user experience.
 
 ## How to install
 
