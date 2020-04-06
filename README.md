@@ -22,5 +22,7 @@ To run rails/rake tasks you have 2 options:
 1. Run `dip sh`. It opens container terminal where you can run `rake db:migrate` or any other commands.
 2. Run `dip rake db:migrate`. It executes the command and exit like if you run `rake db:migrate` without containers.
 
-
+## Thanks
+The setup based on the great article [Ruby on Whales](https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development)
+Thank you @palkan
 
